@@ -8,6 +8,94 @@ const data = {
   email: 'andyweiss1982@gmail.com',
   githubHandle: 'andyweiss1982',
   linkedInHandle: 'andyweiss',
+  workExperiences: [
+    {
+      emoji: '🍔',
+      jobTitle: 'Software Engineer',
+      institution: 'Restaurant Brands International',
+      dates: '2020 - present',
+      details: [
+        'Write frontend and backend code for Burger King, Popeyes and Tim Hortons web and mobile applications',
+        'Teach internal web development bootcamp',
+        "Manage company's technical blog",
+      ],
+    },
+    {
+      emoji: '👨‍🏫',
+      jobTitle: 'Head Instructor',
+      institution: 'Wyncode Academy',
+      dates: '2018 - 2020',
+      details: [
+        'Taught course that prepares career changers for jobs in web development',
+        'Developed curriculum focused on Git, HTML, CSS, JavaScript, React and Ruby on Rails',
+        'Led activities focused on Agile best practices, Lean Startup and other soft skills',
+      ],
+    },
+    {
+      emoji: '📈',
+      jobTitle: 'Lead Engineer',
+      institution: 'Nuro Retention',
+      dates: '2015 - 2018',
+      details: [
+        'Led development teams for student retention platform to mitigate dropout risk',
+        'Translated business requirements from stakeholders into acceptance criteria',
+        'Built integrations with learning management systems and school information systems',
+      ],
+    },
+    {
+      emoji: '🤝',
+      jobTitle: 'Software Developer',
+      institution: 'Consultant',
+      dates: '2014 - present',
+      details: [
+        'Design and develop web and native applications for existing businesses and startups',
+        'Work with clients to test and revise assumptions throughout application development',
+      ],
+    },
+    {
+      emoji: '🌱',
+      jobTitle: 'Founder',
+      institution: 'Weiss Tutoring and College Planning',
+      dates: '2008 - 2014',
+      details: [
+        'Established independent test prep and college counseling practice',
+        'Prepared students for SAT and ACT exams with individual and group tutoring',
+      ],
+    },
+    {
+      emoji: '🌎',
+      jobTitle: 'Lead Teacher',
+      institution: 'Miami-Dade County Public Schools',
+      dates: '2004 - 2011',
+      details: [
+        'Scholars Academy Lead Teacher and IB Coordinator at Miami Beach Senior High',
+        'Global Studies Academy Lead Teacher at Brownsville Middle School',
+        'Taught Journalism, World History, and SAT/ACT prep',
+      ],
+    },
+  ],
+  educationalExperiences: [
+    {
+      emoji: '📓',
+      university: 'Harvard University',
+      school: 'Graduate School of Education',
+      dates: '2006 - 2007',
+      details: [
+        'Ed. M. Teaching and Curriculum, Social Studies',
+        'Urban Scholars Fellow',
+      ],
+    },
+    {
+      emoji: '✌️',
+      university: 'Georgetown University',
+      school: 'Walsh School of Foreign Service',
+      dates: '2000 - 2004',
+      details: [
+        'BSFS, Regional and Comparative Studies, Latin America',
+        'Magna Cum Laude, Phi Beta Kappa',
+      ],
+    },
+  ],
 };
 
 document.title = data.name;
