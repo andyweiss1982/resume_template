@@ -8,9 +8,24 @@ const data = {
   email: 'andyweiss1982@gmail.com',
   githubHandle: 'andyweiss1982',
   linkedInHandle: 'andyweiss',
+  headingEmojis: {
+    workExperience: {
+      character: '👨‍💻',
+      ariaLabel: 'computer-man',
+    },
+    educationExperience: {
+      character: '👨‍🎓',
+      ariaLabel: 'graduate-man',
+    },
+    skills: {
+      character: '💪',
+      ariaLabel: 'muscle',
+    },
+  },
   workExperiences: [
     {
       emoji: '🍔',
+      ariaLabel: 'hamburger',
       jobTitle: 'Software Engineer',
       institution: 'Restaurant Brands International',
       dates: '2020 - present',
@@ -22,6 +37,7 @@ const data = {
     },
     {
       emoji: '👨‍🏫',
+      ariaLabel: 'teacher',
       jobTitle: 'Head Instructor',
       institution: 'Wyncode Academy',
       dates: '2018 - 2020',
@@ -34,6 +50,7 @@ const data = {
     {
       emoji: '📈',
       jobTitle: 'Lead Engineer',
+      ariaLabel: 'graph',
       institution: 'Nuro Retention',
       dates: '2015 - 2018',
       details: [
@@ -45,6 +62,7 @@ const data = {
     {
       emoji: '🤝',
       jobTitle: 'Software Developer',
+      ariaLabel: 'handshake',
       institution: 'Consultant',
       dates: '2014 - present',
       details: [
@@ -54,6 +72,7 @@ const data = {
     },
     {
       emoji: '🌱',
+      ariaLabel: 'seedling',
       jobTitle: 'Founder',
       institution: 'Weiss Tutoring and College Planning',
       dates: '2008 - 2014',
@@ -64,6 +83,7 @@ const data = {
     },
     {
       emoji: '🌎',
+      ariaLabel: 'globe',
       jobTitle: 'Lead Teacher',
       institution: 'Miami-Dade County Public Schools',
       dates: '2004 - 2011',
@@ -77,6 +97,7 @@ const data = {
   educationalExperiences: [
     {
       emoji: '📓',
+      ariaLabel: 'notebook',
       university: 'Harvard University',
       school: 'Graduate School of Education',
       dates: '2006 - 2007',
@@ -87,12 +108,26 @@ const data = {
     },
     {
       emoji: '✌️',
+      ariaLabel: 'peace-sign',
       university: 'Georgetown University',
       school: 'Walsh School of Foreign Service',
       dates: '2000 - 2004',
       details: [
         'BSFS, Regional and Comparative Studies, Latin America',
         'Magna Cum Laude, Phi Beta Kappa',
+      ],
+    },
+  ],
+  skills: [
+    {
+      emoji: '🗣',
+      ariaLabel: 'talking',
+      dates: '1982 - present',
+      skillone: 'Languages',
+      skilltwo: 'Frameworks',
+      details: [
+        'React, Node, SQL, Python, Ruby, HTML, CSS, JavaScript, Serverless',
+        'Native English, Advanced Spanish, Basic Portuguese',
       ],
     },
   ],
@@ -109,22 +144,59 @@ emojiContainer.setAttribute('aria-label', data.mainEmoji.ariaLabel);
 
 const phoneNumberContainer = document.querySelector('#phone-number');
 phoneNumberContainer.textContent = data.phoneNumber;
+const phoneLink = document.querySelector('li:nth-child(1) a');
+phoneLink.href += data.phoneNumber;
 
 const emailContainer = document.querySelector('#email');
 emailContainer.textContent = data.email;
+const emailLink = document.querySelector('li:nth-child(2) a');
+emailLink.href += data.email;
 
 const githubContainer = document.querySelector('#github-link');
 githubContainer.textContent += data.githubHandle;
+const githubLink = document.querySelector('li:nth-child(3) a');
+githubLink.href += data.githubHandle;
 
 const linkedInContainer = document.querySelector('#linkedin-link');
 linkedInContainer.textContent += data.linkedInHandle;
+const linkedInLink = document.querySelector('li:nth-child(4) a');
+linkedInLink.href += data.linkedInHandle;
+
+const workExperienceHeadingEmojiContainer = document.querySelector(
+  "h2:nth-of-type(1) span[role='img']"
+);
+workExperienceHeadingEmojiContainer.textContent =
+  data.headingEmojis.workExperience.character;
+workExperienceHeadingEmojiContainer.setAttribute(
+  'aria-label',
+  data.headingEmojis.workExperience.ariaLabel
+);
+const educationalExperienceHeadingEmojiContainer = document.querySelector(
+  "h2:nth-of-type(2) span[role='img']"
+);
+educationalExperienceHeadingEmojiContainer.textContent =
+  data.headingEmojis.educationExperience.character;
+educationalExperienceHeadingEmojiContainer.setAttribute(
+  'aria-label',
+  data.headingEmojis.educationExperience.ariaLabel
+);
+const skillsHeadingEmojiContainer = document.querySelector(
+  "h2:nth-of-type(3) span[role='img']"
+);
+skillsHeadingEmojiContainer.textContent = data.headingEmojis.skills.character;
+skillsHeadingEmojiContainer.setAttribute(
+  'aria-label',
+  data.headingEmojis.skills.ariaLabel
+);
 
 function renderWorkExperience(workExperience) {
   return `
   <div>
     <span class="date">${workExperience.dates}</span>
     <h3>
-      <span role="img" aria-label="">${workExperience.emoji}</span>
+      <span role="img" aria-label="${workExperience.ariaLabel}">${
+    workExperience.emoji
+  }</span>
       ${workExperience.jobTitle}<span class="comma">,</span>
       <span class="light">${workExperience.institution}</span>
     </h3>
@@ -143,7 +215,9 @@ const renderEducationalExperience = educationalExperience => `
   <div>
     <span class="date">${educationalExperience.dates}</span>
     <h3>
-      <span role="img" aria-label="">${educationalExperience.emoji}</span>
+      <span role="img" aria-label="${educationalExperience.ariaLabel}">${
+  educationalExperience.emoji
+}</span>
       ${educationalExperience.university}<span class="comma">,</span>
       <span class="light">${educationalExperience.school}</span>
     </h3>
@@ -160,3 +234,22 @@ const eachEducationalExperienceHTML = data.educationalExperiences.map(
 );
 const allEducationalExperiencesHTML = eachEducationalExperienceHTML.join('');
 educationContainer.innerHTML = allEducationalExperiencesHTML;
+
+function renderSkills(skill) {
+  return `
+  <div>
+    <span class="date">${skill.dates}</span>
+    <h3>
+      <span role="img" aria-label="${skill.ariaLabel}">${skill.emoji}</span>
+      ${skill.skillone}<span class="comma">,</span>
+      <span class="light">${skill.skilltwo}</span>
+    </h3>
+    <ul>
+    ${skill.details.map(detail => `<li>${detail}</li>`).join('')}
+    </ul>
+  </div>`;
+}
+const skillContainer = document.querySelector(`#skills`);
+const eachSkillHTML = data.skills.map(renderSkills);
+const allSkillsHTML = eachSkillHTML.join('');
+skillContainer.innerHTML = allSkillsHTML;
